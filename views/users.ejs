@@ -6,9 +6,10 @@
   </head>
   <body>
     <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
     <p>JSON:
-             <%= ATMList %>
+          <% if (typeof res.text != 'undefined') { %>
+             <%- JSON.stringify(res.text) %>
+          <% } %>
     </p>
   </body>
 </html>

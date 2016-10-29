@@ -4,10 +4,20 @@ var favicon = require('serve-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+//var request = require('superagent');//Nessie required
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 
+// //Nessie API Keys
+// var api_keys = require('./API_K.json')
+// request.get('http://api.reimaginebanking.com/atms?lat=38.9283&lng=-77.1753&rad=1&key='+api_keys).end(function(res){
+//     foo(res.status);
+//     bar(res.body); //do something
+//     console.log('You got ATM data!');
+// });
+
+//Set up express
 var app = express();
 
 // view engine setup
