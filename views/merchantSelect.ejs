@@ -4,8 +4,14 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <div>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <h1><%= title %></h1>
+      </div>
+    </div>
+
+    <div class= "row">
+      <div class=="small-10 small-centered columns">
       <% for (var i = 0; i < merchants.length; i++) { %>
         <div>
             <span> <h2><%= merchants[i] %> </h2></span>
@@ -13,8 +19,8 @@
 
         </div>
       <% } %>
+      </div>
     </div>
-
 
   </body>
 </html>

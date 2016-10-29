@@ -4,15 +4,32 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <h1><%= title %></h1>
+      </div>
+    </div>
+
     <form>
-      <label>username</label>
-      <input type="text" name="username" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <label>username</label>
+          <input type="text" name="username" />
+        </div>
+      </div>
 
-      <label>username</label>
-      <input type="password" name="password" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <label>password</label>
+          <input type="password" name="password" />
+        </div>
+      </div>
 
-      <input type="submit" value="Signup" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+            <input type="submit" value="Signup" />
+        </div>
+      </div>
     </form>
   </body>
 </html>
