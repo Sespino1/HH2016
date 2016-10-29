@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <!-- redeem method icon (dynamic based on some list of options - check, credit, giftcard) -->
+
+    <!-- redeem amount (total amount from db) -->
+    <span> <%= "$" + redeemAmount %> </span>
+
+    <!-- slider to manipulate amount, ranges from 0.01 to redeem amount from db -->
+    <input type="range" min="1" max="<%= redeemAmount %>" />
+
+    <!-- redeem submit button -->
+    <input type="submit" value="Redeem" />
+  </body>
+</html>
