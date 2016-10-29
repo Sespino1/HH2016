@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <%- include ../partials/head.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <h1><%= title %></h1>
+      </div>
+    </div>
+
     <form>
-      <label>username</label>
-      <input type="text" name="username" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <label>username
+            <input type="text" name="username" />
+          </label>
+        </div>
+      </div>
 
-      <label>username</label>
-      <input type="password" name="password" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <label>password
+            <input type="password" name="password" />
+          </label>
+        </div>
+      </div>
 
-      <input type="submit" value="Login" />
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <input type="submit" value="Login" />
+        </div>
+      </div>
     </form>
   </body>
 </html>
