@@ -4,16 +4,24 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
-    <h1><%= title %></h1>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <h1><%= title %></h1>
+      </div>
+    </div>
     <!-- redeem method icon (dynamic based on some list of options - check, credit, giftcard) -->
 
     <!-- redeem amount (total amount from db) -->
-    <span> <%= "$" + redeemAmount %> </span>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+      <span> <%= "$" + redeemAmount %> </span>
 
     <!-- slider to manipulate amount, ranges from 0.01 to redeem amount from db -->
     <input type="range" min="1" max="<%= redeemAmount %>" />
 
     <!-- redeem submit button -->
     <input type="submit" value="Redeem" />
+    </div>
+  </div>
   </body>
 </html>

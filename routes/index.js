@@ -25,5 +25,8 @@ router.get('/merchantSelect', function(req, res, next) {
 router.get('/redeemReward', function(req, res, next) {
   res.render('redeemReward', { title: 'Redeem', redeemAmount: "25.00" });
 });
+router.get('/signup', function(req, res, next) {
+  res.render('signup', { title: 'Signup' });
+});
 
 module.exports = router;
