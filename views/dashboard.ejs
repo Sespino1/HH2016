@@ -2,15 +2,22 @@
 <html>
   <head>
     <%- include ../partials/head.ejs %>
+    <%- include ../partials/scripts.ejs %>
   </head>
   <body>
     <div class="row">
       <div class="small-10 small-centered columns">
         <h1><%= title %></h1>
+        <div id="welcomeMessage">
+          Welcome, <span id="customerName">  </span>
+        </div>
       </div>
     </div>
+
+
     <div class= "row">
       <div  class="small-10 small-centered columns">
+        <span id="cardNumbers"> </span>
       <% for (var i = 0; i < cards.length; i++) { %>
         <div>
           <span><%= cards[i][0] %></span><br>
@@ -20,6 +27,7 @@
       <% } %>
       </div>
     </div>
+    <br>
 
 
   </body>

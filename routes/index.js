@@ -28,7 +28,10 @@ router.get('/login', function(req, res, next) {
 
 /* GET dashboard page. */
 router.get('/dashboard', function(req, res, next) {
-  res.render('dashboard', { title: 'My Cards', cards: [["12345", "30.00"], ["67891", "25.00"]] });
+  //request.get('http://api.reimaginebanking.com/accounts/58156ab0360f81f104547637?key=c24b7c966f60b4c4200a10bbfe8c3b69').end(function(err, accountNum){
+  //  console.log(accountNum);
+
+  res.render('dashboard', { title: 'My Cards', customers:["Bob Dylan"] ,cards: [["12345", "30.00"], ["67891", "25.00"]] });
 });
 
 /* GET merchantSelect page. */

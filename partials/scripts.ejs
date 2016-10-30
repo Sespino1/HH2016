@@ -2,7 +2,7 @@
 <script>
   $(function(){
     require(['customer'], function (customer) {
-      var apikey = '14eb8bc8a353786c356e2ab236d923c0';
+      var apikey = 'c24b7c966f60b4c4200a10bbfe8c3b69';
       customerDemo(apikey, customer);
     });
   });
@@ -12,19 +12,21 @@ function customerDemo (apikey, customer) {
 
   console.log("Sample Customer: " + customerInfo.first_name);
   $('#customerName').html(customerInfo.first_name + " " + customerInfo.last_name );
+
 }
 
 $(function(){
   require(['account'], function (account) {
-    var apikey = '14eb8bc8a353786c356e2ab236d923c0';
+    var apikey = 'c24b7c966f60b4c4200a10bbfe8c3b69';
     accountDemo(apikey, account);
   });
 });
 
-function accountDemo (apikey, account) {
+function accountDemo (apikey, account, cust_id) {
   var customerAccount = account.initWithKey(apikey);
   var accountInfo = customerAccount.getAllAccounts()[0];
-  console.log(accountInfo.);
+  console.log(accountInfo.account_number);
+  $('#cardNumbers').html(accountInfo.account_number );
 
 }
 
