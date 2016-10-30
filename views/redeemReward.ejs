@@ -4,46 +4,40 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
-    <div class="row">
-      <div class="small-10 small-centered columns">
-        <h1><%= title %></h1>
-      </div>
-    </div>
-<<<<<<< HEAD
+    <%- include ../partials/menu.ejs %>
 
-=======
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
-    <!-- redeem method icon (dynamic based on some list of options - check, credit, giftcard) -->
-
-    <!-- redeem amount (total amount from db) -->
     <div class="row">
-      <div class="small-10 small-centered columns">
-<<<<<<< HEAD
-        <span> <%= "$" + redeemAmount %> </span>
-      </div>
-    </div>
-=======
-      <span> <%= "$" + redeemAmount %> </span>
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
-
-    <!-- slider to manipulate amount, ranges from 0.01 to redeem amount from db -->
-    <div class="row">
-      <div class="small-10 small-centered columns">
-        <input type="range" min="1" max="<%= redeemAmount %>" />
+      <div class="text-center small-10 small-centered columns">
+        <i class="fa fa-<%= icon %> size-7x"></i>
+        <h2 class="text-center"><%= heading %></h2>
       </div>
     </div>
 
-    <!-- redeem submit button -->
-<<<<<<< HEAD
     <div class="row">
       <div class="small-10 small-centered columns">
-        <input type="submit" value="Redeem" />
+        <label id="redeemAmount" class="text-center xl-header"><%= "$" + redeemAmount %></label>
       </div>
     </div>
-=======
-    <input type="submit" value="Redeem" />
+
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <input id="redeemRange" type="range" min="1" max="<%= redeemAmount %>" value="<%= redeemAmount %>" />
+      </div>
     </div>
-  </div>
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
+
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <input type="submit" value="Redeem" class="button" />
+      </div>
+    </div>
+
+    <%-include ../partials/footer.ejs %>
+
+    <%- include ../partials/scripts.ejs %>
+    <script>
+      $('#redeemRange').on('propertychange input', function(e) {
+        $('#redeemAmount').text("$" + $(this).val());
+      })
+    </script>
   </body>
 </html>

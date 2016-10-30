@@ -1,13 +1,346 @@
+/* GENERAL STYLES */
+html, body {
+  height: 100%;
+}
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: "Montserrat", sans-serif;
+  margin-top: 10%;
+}
+
+body, body.light {
+  background-color: #fff;
+  color: #333;
+}
+
+body.dark {
+  background: linear-gradient(to bottom, #29abe2 0%, #551a8b 100%);
+  color: #fff;
 }
 
 a {
-  color: #00B7FF;
+  color: #29abe2;
+  text-decoration: none;
 }
 
-input[type="text"],
-input[type="password"] {
+input, select {
   width: 100%;
+  margin-bottom: 20px;
+  background-color: #fff;
+}
+
+body.dark input,
+body.dark select {
+  background-color: transparent;;
+}
+
+button, .button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    border-radius: 0;
+    border-style: solid;
+    border-width: 0;
+    cursor: pointer;
+    font-weight: bold;
+    line-height: normal;
+    margin: 0 0 1.11111rem;
+    position: relative;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    padding: 1rem 1.77778rem 1rem 1.77778rem;
+    font-size: 2rem;
+    background-color: #29ABE2;
+    border-color: #299ce2;
+    color: #FFFFFF;
+    transition: background-color 300ms ease-out;
+}
+
+button.white, .button.white {
+  background-color: white;
+  color: #333;
+}
+
+/* UTILITY STYLES */
+
+.text-center {
+  text-align: center;
+}
+
+.size-7x {
+  font-size: 7rem;
+}
+
+.xl-header {
+  font-size: 7rem;
+  display: block;
+  font-weight: bold;
+}
+
+/* LOGO STYLES */
+
+.logo-lg {
+  margin-top: 15%;
+  margin-bottom: 15%;
+}
+
+/* PURE CSS - FLOATING LABELS */
+
+.has-float-label {
+  display: block;
+  position: relative;
+}
+.has-float-label label, .has-float-label > span {
+  position: absolute;
+  left: 0;
+  top: 0;
+  cursor: text;
+  font-size: 75%;
+  opacity: 1;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+.has-float-label input {
+  font-size: inherit;
+  padding-top: 1em;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 4px solid rgba(255, 255, 255, 0.3);
+}
+.has-float-label input::-webkit-input-placeholder, .has-float-label select::-webkit-input-placeholder {
+  opacity: 1;
+  -webkit-transition: all .2s;
+  transition: all .2s;
+}
+.has-float-label input:placeholder-shown:not(:focus)::-webkit-input-placeholder, .has-float-label select:placeholder-shown:not(:focus)::-webkit-input-placeholder {
+  opacity: 0;
+}
+.has-float-label input:placeholder-shown:not(:focus) + *, .has-float-label select:placeholder-shown:not(:focus) + * {
+  font-size: 150%;
+  opacity: .5;
+  top: .25em;
+}
+.has-float-label input:focus, .has-float-label select:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.5);
+}
+.input-group {
+  display: table;
+  width: 100%;
+}
+.input-group > * {
+  display: table-cell;
+  width: 50%;
+}
+
+/* CARD STYLES */
+
+.card {
+  background-color: #eee;
+  margin-bottom: 5%;
+  padding: 1.25rem;
+  box-shadow: #ddd 3px 5px;
+}
+.card .cardNumber {
+  font-size: 1.25rem;
+}
+
+.card .rewardAmount {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* OVERLAY STYLES */
+
+.overlay {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  height: 100%;
+  width: 100%;
+  background-color: #fff;
+  color: #333;
+  padding-top: 15%;
+  text-align: center;
+  transition: visibility 1s ease-out;
+  display: none;
+  z-index: 99999;
+}
+
+.overlay.open {
+  display: block;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  opacity: 1;
+  -webkit-animation: anim .8s ease-in-out;
+          animation: anim .8s ease-in-out;
+}
+
+@-webkit-keyframes anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes anim {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  1% {
+    display: block;
+    opacity: 0;
+    -webkit-transform: scale(0);
+            transform: scale(0);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.overlay .close-overlay {
+  position: absolute;
+  font-size: 4rem;
+  color: #333;
+  top: 0px;
+  right: 7%;
+}
+
+.overlay label {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10%;
+}
+
+.overlay a {
+  color: #333;
+}
+
+.overlay i {
+  margin-top: 5%;
+}
+
+.overlay i.fa-money {
+  font-size: 7rem;
+}
+
+.overlay i.fa-credit-card-alt {
+  font-size: 6rem;
+}
+
+.overlay i.fa-gift {
+  font-size: 8rem;
+}
+
+.overlay hr {
+  border: 1px solid #333;
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  margin: 18px 0;
+  width: 100%;
+  margin-bottom: 20%;
+}
+input[type=range]:focus {
+  outline: none;
+}
+input[type=range]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 9px;
+  cursor: pointer;
+  animate: 0.2s;
+  background: #ccc;
+  border-radius: 9px;
+}
+input[type=range]::-webkit-slider-thumb {
+  height: 40px;
+  width: 40px;
+  border-radius: 40px;
+  background: #ccc;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -17px;
+}
+
+#menu {
+  position: absolute;
+  width: 100%;
+  top: 30px;
+}
+
+#menu img {
+  display: block;
+  max-width: 10%;
+  margin-left: auto;
+  margin-right: 20px;
+}
+
+#menuDropdown {
+  display: none;
+  position: absolute;
+  top: 80px;
+  width: 40%;
+  margin-left: auto;
+  right: 0px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  padding: 10px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+#menuDropdown.open {
+  display: block;
+}
+
+.footer {
+  position: absolute;
+  bottom: 20px;
+}
+
+.footer img {
+  display: block;
+  margin-left: auto;
+  max-width: 60%;
 }

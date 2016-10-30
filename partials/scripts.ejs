@@ -27,7 +27,17 @@ function accountDemo (apikey, account, cust_id) {
   var accountInfo = customerAccount.getAllAccounts()[0];
   console.log(accountInfo.account_number);
   $('#cardNumbers').html(accountInfo.account_number );
-
 }
 
+function openMenu(id) {
+  $('#' + id).toggleClass('open');
+}
+
+function openOverlay(id) {
+  $('#' + id).addClass('open');
+}
+
+function closeOverlay(id) {
+  $('#' + id).removeClass('open');
+}
 </script>
