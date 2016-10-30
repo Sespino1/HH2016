@@ -4,46 +4,44 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
+    <%- include ../partials/menu.ejs %>
+
+    <!-- redeem method icon (dynamic based on some list of options - check, credit, giftcard) -->
     <div class="row">
-      <div class="small-10 small-centered columns">
-        <h1><%= title %></h1>
+      <div class="text-center small-10 small-centered columns">
+        <i class="fa fa-<%= icon %> size-7x"></i>
+        <h2 class="text-center"><%= heading %></h2>
       </div>
     </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
-    <!-- redeem method icon (dynamic based on some list of options - check, credit, giftcard) -->
 
     <!-- redeem amount (total amount from db) -->
     <div class="row">
       <div class="small-10 small-centered columns">
-<<<<<<< HEAD
-        <span> <%= "$" + redeemAmount %> </span>
+        <label id="redeemAmount" class="text-center xl-header"><%= "$" + redeemAmount %></label>
       </div>
     </div>
-=======
-      <span> <%= "$" + redeemAmount %> </span>
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
 
     <!-- slider to manipulate amount, ranges from 0.01 to redeem amount from db -->
     <div class="row">
       <div class="small-10 small-centered columns">
-        <input type="range" min="1" max="<%= redeemAmount %>" />
+        <input id="redeemRange" type="range" min="1" max="<%= redeemAmount %>" value="<%= redeemAmount %>" />
       </div>
     </div>
 
     <!-- redeem submit button -->
-<<<<<<< HEAD
     <div class="row">
       <div class="small-10 small-centered columns">
-        <input type="submit" value="Redeem" />
+        <input type="submit" value="Redeem" class="button" />
       </div>
     </div>
-=======
-    <input type="submit" value="Redeem" />
-    </div>
-  </div>
->>>>>>> e5d38c31bcfa638a5c33397d259841f506f2dbd3
+
+    <%-include ../partials/footer.ejs %>
+
+    <%- include ../partials/scripts.ejs %>
+    <script>
+      $('#redeemRange').on('propertychange input', function(e) {
+        $('#redeemAmount').text("$" + $(this).val());
+      })
+    </script>
   </body>
 </html>

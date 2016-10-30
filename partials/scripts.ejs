@@ -24,8 +24,19 @@ $(function(){
 function accountDemo (apikey, account) {
   var customerAccount = account.initWithKey(apikey);
   var accountInfo = customerAccount.getAllAccounts()[0];
-  console.log(accountInfo.);
+  console.log(accountInfo);
 
 }
 
+function openMenu(id) {
+  $('#' + id).toggleClass('open');
+}
+
+function openOverlay(id) {
+  $('#' + id).addClass('open');
+}
+
+function closeOverlay(id) {
+  $('#' + id).removeClass('open');
+}
 </script>

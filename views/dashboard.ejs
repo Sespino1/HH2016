@@ -4,23 +4,51 @@
     <%- include ../partials/head.ejs %>
   </head>
   <body>
+    <%- include ../partials/menu.ejs %>
+
     <div class="row">
       <div class="small-10 small-centered columns">
         <h1><%= title %></h1>
       </div>
     </div>
-    <div class= "row">
-      <div  class="small-10 small-centered columns">
-      <% for (var i = 0; i < cards.length; i++) { %>
-        <div>
-          <span><%= cards[i][0] %></span><br>
-          <span> <h1><%= "$"+ cards[i][1] %> </h1> </span><br>
-          <span> Rewards </span><br><hr />
+
+    <% for (var i = 0; i < cards.length; i++) { %>
+      <div class= "row">
+        <div  class="small-10 small-centered columns">
+          <div class="card">
+            <div class="cardNumber"><%= cards[i][0] %></div>
+            <div class="rewardAmount"><%= "$"+ cards[i][1] %></div>
+            <div class="subtext"><a href="#" onclick="openOverlay('redemptionTypeOverlay')">Redeem Rewards</a></div>
+          </div>
         </div>
-      <% } %>
       </div>
+    <% } %>
+
+    <!-- screen overlay for "redemption type" selection -->
+    <div id="redemptionTypeOverlay" class="overlay">
+      <div class="row">
+        <div class="small-10 small-centered columns">
+          <a href="/redeemCash">
+            <i class="fa fa-money"></i>
+            <label>CASH</label>
+          </a>
+          <hr />
+          <a href="/redeemCredit">
+            <i class="fa fa-credit-card-alt"></i>
+            <label>ACCOUNT CREDIT</label>
+          </a>
+          <hr />
+          <a href="/merchantSelect">
+            <i class="fa fa-gift"></i>
+            <label>eGIFT CARD</label>
+          </a>
+        </div>
+      </div>
+      <a class="close-overlay" onclick="closeOverlay('redemptionTypeOverlay')">&#215;</a>
     </div>
 
+    <%-include ../partials/footer.ejs %>
 
+    <%- include ../partials/scripts.ejs %>
   </body>
 </html>

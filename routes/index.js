@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var request = require('superagent');//Nessie required
+var request = require('superagent'); //Nessie required
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -23,7 +23,12 @@ router.get('/', function(req, res, next) {
 
 /* GET login page. */
 router.get('/login', function(req, res, next) {
-  res.render('login', { title: 'Login', cards: [["1", "card1"], ["2", "card2"]] });
+  res.render('login', { title: 'Login' });
+});
+
+/* PROCESS login request. */
+router.post('/processLogin', function(req, res, next) {
+  res.redirect('/dashboard');
 });
 
 /* GET dashboard page. */
@@ -33,17 +38,34 @@ router.get('/dashboard', function(req, res, next) {
 
 /* GET merchantSelect page. */
 router.get('/merchantSelect', function(req, res, next) {
-  res.render('merchantSelect', { title: 'Merchant Selection', merchants:["Target", "Walmart"] });
+  res.render('merchantSelect', { title: 'Select a Merchant',
+    merchants:["Target", "Starbucks Coffee", "Walmart", "American Eagle Outfitters"] });
+});
+
+/* GET merchantSelect page. */
+router.get('/redeemCash', function(req, res, next) {
+  res.render('redeemReward', { title: 'Redeem', redeemAmount: "25", icon: "money", heading: "Cash" });
+});
+
+/* GET merchantSelect page. */
+router.get('/redeemCredit', function(req, res, next) {
+  res.render('redeemReward', { title: 'Redeem', redeemAmount: "25", icon: "credit-card-alt", heading: "Account Credit" });
 });
 
 /* GET redeemReward page. */
-router.get('/redeemReward', function(req, res, next) {
-  res.render('redeemReward', { title: 'Redeem', redeemAmount: "25.00" });
+router.get('/redeemGiftCard', function(req, res, next) {
+  res.render('redeemReward', { title: 'Redeem', redeemAmount: "25", icon: "gift", heading: "eGift Card for " });
 });
 
 /* GET signup page. */
 router.get('/signup', function(req, res, next) {
   res.render('signup', { title: 'Signup' });
+});
+
+/* PROCESS logout page. */
+router.get('/logout', function(req, res, next) {
+  // remove user information
+  res.redirect('/login');
 });
 
 module.exports = router;
