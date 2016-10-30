@@ -1,0 +1,31 @@
+<script data-main="lib/capital_one" src="lib/require-jquery.js"></script>
+<script>
+  $(function(){
+    require(['customer'], function (customer) {
+      var apikey = '14eb8bc8a353786c356e2ab236d923c0';
+      customerDemo(apikey, customer);
+    });
+  });
+function customerDemo (apikey, customer) {
+  var customerAccount = customer.initWithKey(apikey);
+  var customerInfo = customerAccount.getCustomers()[0];
+
+  console.log("Sample Customer: " + customerInfo.first_name);
+  $('#customerName').html(customerInfo.first_name + " " + customerInfo.last_name );
+}
+
+$(function(){
+  require(['account'], function (account) {
+    var apikey = '14eb8bc8a353786c356e2ab236d923c0';
+    accountDemo(apikey, account);
+  });
+});
+
+function accountDemo (apikey, account) {
+  var customerAccount = account.initWithKey(apikey);
+  var accountInfo = customerAccount.getAllAccounts()[0];
+  console.log(accountInfo.);
+
+}
+
+</script>
